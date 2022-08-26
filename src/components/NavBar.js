@@ -1,5 +1,6 @@
 import logo from '../logo.svg';
 import './style.css';
+import carrito from './img/carrito.png'
 const NavBar = () => {
     return (
         <div className='navbarCont'>
@@ -13,7 +14,7 @@ const NavBar = () => {
                     <li><a href='#'>Contact</a></li>
                 </ul>
             </div>
-            <div><button>Login</button></div>
+            <div><img width={'100px'} src= {carrito}></img></div>
         </div>
     )
 }
