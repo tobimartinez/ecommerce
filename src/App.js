@@ -11,10 +11,9 @@ function App() {
     <div className="App">
        <NavBar />
        <header className="App-header">
-        <ItemListContainer nombresProductos ='Remera Azul' contenido = 'Esta remera esta hecha por nosotros y actualmente esta en venta!'>
-        <ItemCount stock='10' initial='1'/>
+        <ItemListContainer nombresProductos ='Remera Azul' contenido = 'Esta remera esta hecha por nosotros y actualmente esta en venta!' />
 
-        </ItemListContainer>
+
  
 
         </header>
