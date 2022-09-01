@@ -8,7 +8,7 @@ const ItemList = ({ itemsList }) => {
             return (
                 <Item className="tarjetaProducto" 
                 key={producto.id}
-                name={producto.name}
+                nombre={producto.nombre}
                 description={producto.description} 
                 precio={producto.precio}
                 img={producto.img}
