@@ -1,6 +1,6 @@
 import react from 'react'
 import ItemCount from '../components/ItemCount.js';
-import data from './Data/async-mock';
+import info from './Data/async-mock';
 import ItemList from './ItemList/ItemList.js';
 import { useState, useEffect } from 'react';
 
@@ -10,7 +10,7 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
 
     const getData = new Promise((resolve, reject) => {
         setTimeout( () => {
-            resolve(data);
+            resolve(info);
         },2000) 
     });
 

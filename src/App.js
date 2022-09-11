@@ -12,13 +12,15 @@ function App() {
        <NavBar />
        <header className="App-header">
        <ItemListContainer nombresProductos ='Remera Azul' contenido = 'Esta remera esta hecha por nosotros y actualmente esta en venta!' />
-        <ItemDetailContainer/>
+      
 
  
 
-        </header>
-        
 
+
+
+        </header>
+        <ItemDetailContainer />
     </div>
   );
 }

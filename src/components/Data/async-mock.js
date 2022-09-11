@@ -11,7 +11,7 @@ import WetDrewamsNegroBuzo from '../img/Ropa/wetDreamsNegroBuzo.jpeg';
 
 
 
-const data = [
+const info = [
     {
         id:1,
         nombre: 'Buzo Carreras',
@@ -86,4 +86,4 @@ const data = [
     }
 ];
 
-export default data;
+export default info;
