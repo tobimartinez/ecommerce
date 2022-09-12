@@ -4,24 +4,24 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {BrowserRouter, Routes, Route, Router} from "react-router-dom";
+import ContactoPage from './components/Contacto/Contacto';
+import Products from './components/Producto/Products';
+
 function App() {
   
   return (
-   
-    <div className="App">
-       <NavBar />
-       <header className="App-header">
-       <ItemListContainer nombresProductos ='Remera Azul' contenido = 'Esta remera esta hecha por nosotros y actualmente esta en venta!' />
-      
-
- 
-
-
-
-
-        </header>
-        <ItemDetailContainer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer/>}></Route>
+          <Route path='/products' element={<Products/>}></Route>
+          <Route path='/contacto' element={<ContactoPage/>}></Route>
+          <Route path='/products/:categoryId' element={<ItemListContainer/>}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -19,6 +19,7 @@ const info = [
         precio: '$1800',
         img: BuzoCarreras,
         stock:10,
+        categoria:"Buzos",
     },
     {
         id: 2,
@@ -27,6 +28,7 @@ const info = [
         precio: '$2200',
         img: BuzoHustle, 
         stock:20,     
+        categoria:"Buzos",
     },
     {
         id: 3,
@@ -35,6 +37,7 @@ const info = [
         precio: '$3200',
         img: buzoNegroYNaranja,      
         stock:30,  
+        categoria:"Buzos",
     },
     {
         id: 4,
@@ -43,6 +46,7 @@ const info = [
         precio: '$3000',
         img: BuzoNegroYRosa,
         stock:20,        
+        categoria:"Buzos",
     },
     {
         id: 5,
@@ -51,6 +55,7 @@ const info = [
         precio: '$3700',
         img: buzoThuthGris, 
         stock:10,       
+        categoria:"Buzos",
     },
     {
         id: 6,
@@ -59,6 +64,7 @@ const info = [
         precio: '$5000',
         img: BuzoUmbraBlanco, 
         stock:15,       
+        categoria:"Buzos",
     },
     {
         id: 7,
@@ -66,7 +72,8 @@ const info = [
         description: 'Descripcion de item 7',
         precio: '$4500',
         img: BuzoWarning,
-        stock:7,       
+        stock:7,    
+        categoria:"Buzos",   
     },
     {
         id: 8,
@@ -74,7 +81,8 @@ const info = [
         description: 'Descripcion de item 8',
         precio: '$6000',
         img: RemeraBlanca,
-        stock:7,        
+        stock:7,  
+        categoria: "Remera",      
     },
     {
         id: 9,
@@ -82,7 +90,8 @@ const info = [
         description: 'Descripcion de item 9',
         precio: '$5500',
         img: WetDrewamsNegroBuzo,
-        stock:12,        
+        stock:12,    
+        categoria:"Buzos",    
     }
 ];
 

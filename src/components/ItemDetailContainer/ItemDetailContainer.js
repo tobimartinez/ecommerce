@@ -9,7 +9,7 @@ import info from '../Data/async-mock.js';
 
 export const ItemDetailContainer = () => {
      
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
         
     useEffect(() => {
         const getData = new Promise(resolve => {

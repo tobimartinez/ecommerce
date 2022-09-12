@@ -3,9 +3,12 @@ import ItemCount from '../components/ItemCount.js';
 import info from './Data/async-mock';
 import ItemList from './ItemList/ItemList.js';
 import { useState, useEffect } from 'react';
-
+import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail/ItemDetail.js';
 const ItemListContainer = ({nombresProductos,contenido}) => {
 
+    const {categoryId} =  useParams();
+    console.log('categoryId', categoryId)
     const [items,setItems]= useState([]);
 
     const getData = new Promise((resolve, reject) => {
@@ -17,15 +20,11 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
 
     useEffect( () => {
         getData.then((result) => {
-            setItems(result);
+            const newProducts = result.filter(item => item.categoria === categoryId);
+            setItems(newProducts);
         }) 
-    }, [])
+    }, [categoryId])
         
-
-
-
-
-
 
     const onAdd = (quantity ) =>{
         console.log(`Compraste ${quantity} unidades`);
