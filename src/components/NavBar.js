@@ -10,7 +10,7 @@ const NavBar = () => {
             <div>
                 <ul className='navbarText'>
                     <Link to="/">Inicio</Link>
-                    <Link to='/products'>Products</Link>
+                    <Link to='/productos'>Products</Link>
                     <Link to="/contacto">Contact</Link>
                     <Link to="/products/buzos">Buzos</Link>
                     <Link to="/products/remeras">Remeras</Link>

@@ -1,34 +1,36 @@
 import ItemDetail from '../ItemDetail/ItemDetail';
 import react, { useEffect, useState } from 'react';
 import info from '../Data/async-mock.js';
-
-
+import { useParams } from 'react-router-dom';
 
 
 
 
 export const ItemDetailContainer = () => {
-     
-    const [data, setData] = useState([]);
-        
-    const getData = new Promise((resolve, reject) => {
 
-        setTimeout( () => {
-            resolve(info);
-        },2000) 
-    });
-    useEffect( () => {
+    const {productId} = useParams();
+    const [item,setItem] = useState({});
 
-        getData.then((res) => {
-            setData(res);
-        }) 
+    const getData = (id) =>{
+        return new Promise((resolve,reject) => {
+            const producto = info.find(item=>item.id === parseInt(productId));
+            resolve(info)
+        })
+    }
 
-    }, [])
+    useEffect(()=>{
+        const getProducto = async() =>{
+            const producto = await getData();
+            setItem(producto)
+
+        }
+        getProducto();
+    },[])
 
     return(
-        <>
-        {data.map((item)=> <ItemDetail key={item.id} item={item}></ItemDetail>)}
-        </>
+        <div>
+            <ItemDetail item={item}></ItemDetail>
+        </div>
     );
 }
 

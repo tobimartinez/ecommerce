@@ -4,9 +4,10 @@ import info from './Data/async-mock';
 import ItemList from './ItemList/ItemList.js';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 const ItemListContainer = ({nombresProductos,contenido}) => {
 
-    //const {categoryId} =  useParams();
+    const {categoryId} =  useParams();
     const [items,setItems]= useState([]);
 
     const getData = new Promise((resolve, reject) => {
@@ -18,9 +19,15 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
 
     useEffect( () => {
         getData.then((result) => {
-            setItems(result);
+            if(categoryId){
+                const newProductos = result.filter( item=> item.categoria === categoryId);
+                setItems(newProductos);
+            }else{
+                setItems(result)
+            }
+           
         }) 
-    }, [])
+    }, [categoryId])
         
 
 
