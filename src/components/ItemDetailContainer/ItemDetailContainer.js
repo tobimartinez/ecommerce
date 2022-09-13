@@ -11,16 +11,20 @@ export const ItemDetailContainer = () => {
      
     const [data, setData] = useState({});
         
-    useEffect(() => {
-        const getData = new Promise(resolve => {
-            setTimeout(() => {
-                resolve(info);
-            }, 3000);
-        })
+    const getData = new Promise((resolve, reject) => {
 
-        getData.then(res => setData(res));
+        setTimeout( () => {
+            resolve(info);
+        },2000) 
+    });
+    useEffect( () => {
 
-    },[])
+        getData.then((res) => {
+            setData(res);
+        }) 
+
+    }, [])
+
     return(
         <ItemDetail data={data}/>
     );
