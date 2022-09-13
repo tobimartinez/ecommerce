@@ -9,7 +9,7 @@ import info from '../Data/async-mock.js';
 
 export const ItemDetailContainer = () => {
      
-    const [data, setData] = useState({});
+    const [data, setData] = useState([]);
         
     const getData = new Promise((resolve, reject) => {
 
@@ -26,7 +26,9 @@ export const ItemDetailContainer = () => {
     }, [])
 
     return(
-        <ItemDetail data={data}/>
+        <>
+        {data.map((item)=> <ItemDetail key={item.id} item={item}></ItemDetail>)}
+        </>
     );
 }
 
