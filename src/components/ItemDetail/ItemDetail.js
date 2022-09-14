@@ -3,18 +3,37 @@ import info from '../Data/async-mock';
 import Item from '../Item/Item';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
-export const ItemDetail = ({}) => {
+export const ItemDetail = ({ item }) => {
     return(
-
+        /*<div>
+            <p> item detail</p>
+            <div><img src={item.img}></img></div>
+            <div>
+                <h4>{item.nombre}</h4>
+                <h5> {item.precio}</h5>
+            </div>
+        </div>*/
+        /*<div>             //casi funciona
+            <p>Item Detail</p>
+            {
+                info.map(producto=>(
+                    <Item  key={item.id}
+                    item={item}
+                    imagen={item.img}
+                    />
+                ))
+            }
+        </div>*/
         <div>
             <p>item detail</p>
-            {info.map((item)=> {
+            {item.map((producto)=> {
                 
-                <div>
-                    <img>{item.img}</img>
-                    <h4>{item.nombre}</h4>
-                    <p>{item.precio}</p>
-                </div>
+                <Item
+                key={producto.id}
+                imagen={producto.img}
+                nombre={producto.nombre}
+                precio={producto.precio}
+                ></Item>
             })}
         </div>
 
@@ -29,23 +48,6 @@ export const ItemDetail = ({}) => {
                 <p>{item.precio}</p>
             </div>
         </div>   */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         /*{<div>
             <h1>Detalle</h1>
             <div>

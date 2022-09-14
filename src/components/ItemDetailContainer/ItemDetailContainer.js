@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
     const getData = (id) =>{
         return new Promise((resolve,reject) => {
             const producto = info.find(item=>item.id === parseInt(productId));
-            resolve(info)
+            resolve(producto)
         })
     }
 
@@ -25,10 +25,11 @@ export const ItemDetailContainer = () => {
 
         }
         getProducto();
-    },[])
+    },[productId])
 
     return(
         <div>
+            <p>Item detail Container</p>
             <ItemDetail item={item}></ItemDetail>
         </div>
     );
