@@ -18,18 +18,18 @@ export const ItemDetailContainer = () => {
         })
     }
 
+
     useEffect(()=>{
         const getProducto = async() =>{
             const producto = await getData();
             setItem(producto)
-
+            console.log(producto)
         }
         getProducto();
     },[productId])
 
     return(
         <div>
-            <p>Item detail Container</p>
             <ItemDetail item={item}></ItemDetail>
         </div>
     );

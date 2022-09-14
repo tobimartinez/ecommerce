@@ -13,7 +13,6 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
     const getData = new Promise((resolve, reject) => {
         setTimeout( () => {
             resolve(info);
-            console.log(info)
         },2000) 
     });
 
@@ -36,16 +35,12 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
 
 
 
-    const onAdd = (quantity ) =>{
-        console.log(`Compraste ${quantity} unidades`);
-    }
     
     return(
         
         <div>
             <h3>{nombresProductos}</h3>
             <p>{contenido}</p>
-            <ItemCount stock='10' initial='1' onAdd={onAdd}/>
 
             <h2 className='titulo'>Te dejamos una muestra de nuestros productos!</h2>
             <ItemList itemsList={items} />
