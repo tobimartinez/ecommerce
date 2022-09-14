@@ -13,6 +13,7 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
     const getData = new Promise((resolve, reject) => {
         setTimeout( () => {
             resolve(info);
+            console.log(info)
         },2000) 
     });
 
@@ -38,8 +39,9 @@ const ItemListContainer = ({nombresProductos,contenido}) => {
     const onAdd = (quantity ) =>{
         console.log(`Compraste ${quantity} unidades`);
     }
-
+    
     return(
+        
         <div>
             <h3>{nombresProductos}</h3>
             <p>{contenido}</p>

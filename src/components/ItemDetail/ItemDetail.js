@@ -24,7 +24,7 @@ export const ItemDetail = ({ item }) => {
                 ))
             }
         </div>*/
-        <div>
+        /*<div>
             <p>item detail</p>
             {item.map((producto)=> {
                 
@@ -35,7 +35,7 @@ export const ItemDetail = ({ item }) => {
                 precio={producto.precio}
                 ></Item>
             })}
-        </div>
+        </div>*/
 
         /*
         <div>
@@ -48,14 +48,14 @@ export const ItemDetail = ({ item }) => {
                 <p>{item.precio}</p>
             </div>
         </div>   */
-        /*{<div>
+        <div>
             <h1>Detalle</h1>
             <div>
                 <img height="300px"src={item.img}/>
                 <h2>{item.nombre}</h2>
                 <p>{item.precio}</p>
             </div>
-        </div>}*/
+        </div>
     )   
 }
 
