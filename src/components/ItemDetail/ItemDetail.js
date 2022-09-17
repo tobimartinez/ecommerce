@@ -1,28 +1,24 @@
-import react, { useState } from 'react';
+import react, { useState, useContext } from 'react';
 import info from '../Data/async-mock';
 import Item from '../Item/Item';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemCount from '../ItemCount';
+import { CartContext } from '../../Context/CartContext';
+
 export const ItemDetail = ({ item }) => {
 
-    const[compra,Setcompra]= useState(0);
-
-
+    const {addItem} = useContext(CartContext);
+    const [compra,setCompra] = useState(0);
 
     const onAdd = (cantidad) =>{
-
-        Setcompra(cantidad)
+        setCompra(cantidad)
+        addItem(item,cantidad)
     }
 
-
     return(
-
-        
         <div>
-            
             <h1>Detalle</h1>
             <div>
-
                 <img height="300px"src={item.img}/>
                 <h2>{item.nombre}</h2>
                 <p>{item.precio}</p>

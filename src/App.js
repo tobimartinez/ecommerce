@@ -7,24 +7,29 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {BrowserRouter, Routes, Route, Router} from "react-router-dom";
 import ContactoPage from './components/Contacto/Contacto';
 import Products from './components/Producto/Products';
+import {CartProvider} from './Context/CartContext';
+import CartContainer from './components/CartContainer/CartContainer';
+
 
 function App() {
   
   return (
-    <BrowserRouter>
-      <div className="App">
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer/>}></Route>
-          <Route path='/productos' element={<Products/>}></Route>
-          <Route path='/contacto' element={<ContactoPage/>}></Route>
-          <Route path='/products/:categoryId' element={<ItemListContainer/>}></Route>
-          <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
-          
-        </Routes>
-        {/*<ItemDetailContainer/>*/}
-      </div>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>}></Route>
+            <Route path='/productos' element={<Products/>}></Route>
+            <Route path='/contacto' element={<ContactoPage/>}></Route>
+            <Route path='/products/:categoryId' element={<ItemListContainer/>}></Route>
+            <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<CartContainer/>}></Route>
+          </Routes>
+          {/*<ItemDetailContainer/>*/}
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
