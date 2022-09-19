@@ -4,14 +4,18 @@ import { CartContext } from "../../Context/CartContext";
 
 
 export const CartContainer = () => {
-    const value = useContext(CartContext);
+    const {productCartList, removeItem} = useContext(CartContext);
     return(
         <div>
             CartContainer
             
             <div>
-                {value.productCartList.map(item=>(
-                    <p>{item.nombre}</p>
+                
+                {productCartList.map(item=>(
+                    <>
+                        <p>{item.nombre} -  {item.quantity}</p>
+                        <button onClick={()=>removeItem(item.id)}> eliminar producto</button>
+                    </>
                 ))}
                 
             </div>

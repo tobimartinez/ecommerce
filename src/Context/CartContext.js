@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import ItemDetail from '../components/ItemDetail/ItemDetail';
 
 export const CartContext = React.createContext();
 
@@ -9,19 +10,26 @@ export const CartProvider = ({children}) => {
     const addItem = (item,quantity) =>{
         //console.log('item', item, 'quantity', quantity)
         const newProduct = {
-            titulo:item.nombre,
-            key:item.id,
+            id:item.id,
+            nombre:item.nombre,
+            imagen:item.img,
             quantity
         }
-        console.log("newProduct", newProduct)
 
         const newArreglo = [...productCartList];
         newArreglo.push(newProduct);
-        setProductCartList(newArreglo);
+        setProductCartList(newArreglo)
+        //setProductCartList([...productCartList,newProduct])
     }
 
+
+    const removeItem = (itemId)  => {
+        const newArreglo = productCartList.filter(producto => producto.id !== itemId);
+        setProductCartList(newArreglo)
+    }
     return(
-        <CartContext.Provider value={{productCartList , addItem}}>
+        <CartContext.Provider value=
+        {{productCartList , addItem, removeItem}}>
             {children}
         </CartContext.Provider>
     )
