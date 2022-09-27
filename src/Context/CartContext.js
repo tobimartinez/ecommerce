@@ -8,7 +8,7 @@ export const CartProvider = ({children}) => {
     const [productCartList, setProductCartList] = useState([]);
 
     const addItem = (item,quantity) =>{
-        //console.log('item', item, 'quantity', quantity)
+
         const newProduct = {
             id:item.id,
             nombre:item.nombre,
@@ -27,9 +27,15 @@ export const CartProvider = ({children}) => {
         const newArreglo = productCartList.filter(producto => producto.id !== itemId);
         setProductCartList(newArreglo)
     }
+
+    //const clearCarrito = () => setProductCartList([]);
+
+    function IsInCart(id) {
+        return productCartList.find(producto => producto.id === id) ? true : false;
+    }
     return(
         <CartContext.Provider value=
-        {{productCartList , addItem, removeItem}}>
+        {{productCartList , addItem, removeItem , IsInCart}}>
             {children}
         </CartContext.Provider>
     )

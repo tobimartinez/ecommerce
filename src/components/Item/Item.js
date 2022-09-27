@@ -5,7 +5,7 @@ const Item = ({producto}) => {
     return(
         <div>
             <img height='300px' src={producto.img}></img>
-            <h3>{producto.nombre}</h3>
+            <h3>{producto.titulo}</h3>
             <p>{producto.precio}</p>
             <p>{producto.description}</p>
             <Link to={`/item/${producto.id}`}>

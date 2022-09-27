@@ -13,7 +13,7 @@ export const CartContainer = () => {
                 
                 {productCartList.map(item=>(
                     <>
-                        <p>{item.nombre} -  {item.quantity}</p>
+                        <p>{item.titulo} -  {item.quantity}</p>
                         <button onClick={()=>removeItem(item.id)}> eliminar producto</button>
                     </>
                 ))}
