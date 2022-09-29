@@ -4,6 +4,7 @@ import Item from '../Item/Item';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemCount from '../ItemCount';
 import { CartContext } from '../../Context/CartContext';
+import {Link} from "react-router-dom"
 
 export const ItemDetail = ({ item }) => {
 
@@ -28,6 +29,11 @@ export const ItemDetail = ({ item }) => {
                 </div>
                 <ItemCount stock='10' initial='1' onAdd={onAdd}/>
             </div>
+
+            {
+                compra > 0 &&
+                <Link to="/cart"><button>Ir al carrito</button></Link>
+            }
         </div>
     )   
 }
