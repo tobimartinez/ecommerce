@@ -1,22 +1,56 @@
-import React,{useContext} from "react";
+import React,{useContext,useState} from "react";
 import { CartContext } from "../../Context/CartContext";
 import {Link} from 'react-router-dom'
+import {db} from '../../utils/firebase';
+import { collection, addDoc, doc , updateDoc } from "firebase/firestore"
 
 
 export const CartContainer = () => {
     const {productCartList, removeItem, clearCarrito,totalPrecio} = useContext(CartContext);
-    console.log(productCartList)
-    const order = {buyer: 
-        {name: "maria", 
-        phone:"812381231",
-        email:"maria@gmail.com"}, 
-        items : productCartList, 
+    const  [idOrder, setIdOrder] = useState("");
+    //console.log(productCartList)
+    const sendOrder = (event) =>{
+        event.preventDefault();
+
+
+        const order = {buyer: 
+            {name: event.target[0].value, 
+            phone: event.target[1].value,
+            email: event.target[2].value}, 
+            items : productCartList, 
+            total: totalPrecio()
+        }
+        console.log("order",order) 
+
+        const queryRef = collection(db, "orders");
+
+        addDoc(queryRef, order).then(response=>{
+            console.log("response",response)
+            setIdOrder(response.id)
+        });
+
     }
-        //total}
+
+    const updateOrder = () => {
+        const queryRef = doc(db,"orders","5DXwxooDTFtERSKKvi8n");
+
+        updateDoc(queryRef,{
+            total:14800
+        }).then(response=>console.log(response))
+    }
+    
+
+
+
+
+
 
     return(
         <div>
             <h1>Carrito</h1>
+            {idOrder &&  <p> su orden fue creada, id {idOrder}</p>} 
+            <button onClick={updateOrder}>actualizar orden</button>
+            
             {
                 productCartList.length > 0 ?
                 <div>   
@@ -33,6 +67,15 @@ export const CartContainer = () => {
                     ))}
                     <button onClick={clearCarrito}>Vaciar el carrito</button>
                     <h5>El precio total es de: ${totalPrecio()}</h5>
+                    <form onSubmit={sendOrder}>
+                        <label>Nombre:</label>
+                        <input type="text" ></input>
+                        <label>Numero de telefono:</label>
+                        <input type="text"></input>
+                        <label>Correo electronico:</label>
+                        <input type="email"></input>
+                        <button type="submit">Enviar order</button>
+                    </form>
                 </div>
                 :
                 <p>el carrito esta vacio hace click <Link to="/">aca</Link> para ir al listado de productos y agrega uno</p>
