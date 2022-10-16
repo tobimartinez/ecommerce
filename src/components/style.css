@@ -7,20 +7,16 @@
     justify-content: space-between;
     align-items: center;
 }
-.navbarText{
+.navbarText ul{
     display: flex;
     list-style: none;
     text-align: center;
     margin-right: 10px;
-    text-decoration: none;
 }
-.navbarText li{
+.navbarText a{
     margin-right: 30px;
     margin-left: 10px;
-}
-.navbarText li a{
     text-decoration: none;
-    color: black;
-    font-size: 18px;
-    padding-right: 5px;
+    font-size: 25px;
+    color: white;
 }
